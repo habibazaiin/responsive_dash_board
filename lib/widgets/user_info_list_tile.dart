@@ -15,6 +15,7 @@ class UserInfoListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      
       leading: SvgPicture.asset(image),
       title: Text(
         title,
