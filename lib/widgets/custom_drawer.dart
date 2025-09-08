@@ -11,14 +11,19 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffFAFAFA),
+      color: Colors.white,
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: UserInfoListTile(
-              image: Assets.imagesAvatar3,
-              title: 'Lekan Okeowo',
-              subtitle: 'demo@gmail.com',
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffFAFAFA)
+              ),
+              child: UserInfoListTile(
+                image: Assets.imagesAvatar3,
+                title: 'Lekan Okeowo',
+                subtitle: 'demo@gmail.com',
+              ),
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 8)),
@@ -28,9 +33,7 @@ class CustomDrawer extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(child: SizedBox(
-                  height: 20,
-                )),
+                Expanded(child: SizedBox(height: 20)),
                 InActiveDrawer(
                   drawerItemModel: DrawerItemModel(
                     title: 'Setting System',

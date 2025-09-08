@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_dash_board/utils/app_styles.dart';
 
-
 class UserInfoListTile extends StatelessWidget {
   const UserInfoListTile({
     super.key,
@@ -15,14 +14,9 @@ class UserInfoListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      
       leading: SvgPicture.asset(image),
-      title: Text(
-        title,
-        style: AppStyles.styleSemiBold16(context),
-      ),
-      subtitle: Text(subtitle,
-      style: AppStyles.styleRegular12(context),),
+      title: Text(title, style: AppStyles.styleSemiBold16(context)),
+      subtitle: Text(subtitle, style: AppStyles.styleRegular12(context)),
     );
   }
 }
