@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:responsive_dash_board/models/all_expenses_item_model.dart';
 
 class AllExpensesItemHeader extends StatelessWidget {
   const AllExpensesItemHeader({super.key, required this.image});

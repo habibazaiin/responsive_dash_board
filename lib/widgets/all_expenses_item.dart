@@ -9,38 +9,35 @@ class AllExpensesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: const BorderSide(width: 1, color: Color(0XFFF1F1F1)),
-            borderRadius: BorderRadius.circular(12),
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1, color: Color(0XFFF1F1F1)),
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AllExpensesItemHeader(image: allExpensesItemModel.image),
+          SizedBox(height: 34),
+          Text(
+            allExpensesItemModel.title,
+            style: AppStyles.styleMedium16(context),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AllExpensesItemHeader(image: allExpensesItemModel.image),
-            SizedBox(height: 34),
-            Text(
-              allExpensesItemModel.title,
-              style: AppStyles.styleMedium16(context),
-            ),
-            SizedBox(height: 8),
-            Text(
-              allExpensesItemModel.date,
-              style: AppStyles.styleRegular14(context),
-            ),
-            SizedBox(height: 16),
-            Text(
-              allExpensesItemModel.price,
-              style: AppStyles.styleSemiBold24(context),
-            ),
-          ],
-        ),
+          SizedBox(height: 8),
+          Text(
+            allExpensesItemModel.date,
+            style: AppStyles.styleRegular14(context),
+          ),
+          SizedBox(height: 16),
+          Text(
+            allExpensesItemModel.price,
+            style: AppStyles.styleSemiBold24(context),
+          ),
+        ],
       ),
     );
   }
