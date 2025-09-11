@@ -3,7 +3,7 @@ import 'package:responsive_dash_board/models/all_expenses_item_model.dart';
 import 'package:responsive_dash_board/utils/app_images.dart';
 import 'package:responsive_dash_board/widgets/all_expenses_item.dart';
 
-class AllExpensesItemListView extends StatelessWidget {
+class AllExpensesItemListView extends StatefulWidget {
   const AllExpensesItemListView({super.key});
 
   static const List<AllExpensesItemModel> items = [
@@ -28,9 +28,17 @@ class AllExpensesItemListView extends StatelessWidget {
   ];
 
   @override
+  State<AllExpensesItemListView> createState() =>
+      _AllExpensesItemListViewState();
+}
+
+class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
+  int idx = 0;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
-      children: items.asMap().entries.map((entry) {
+      children: AllExpensesItemListView.items.asMap().entries.map((entry) {
         int index = entry.key;
         var item = entry.value;
 
@@ -38,9 +46,29 @@ class AllExpensesItemListView extends StatelessWidget {
           child: index == 1
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: AllExpensesItem(allExpensesItemModel: item),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        idx = index;
+                      });
+                    },
+                    child: AllExpensesItem(
+                      isSelected: idx == index,
+                      allExpensesItemModel: item,
+                    ),
+                  ),
                 )
-              : AllExpensesItem(allExpensesItemModel: item),
+              : GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      idx = index;
+                    });
+                  },
+                  child: AllExpensesItem(
+                    isSelected: idx == index,
+                    allExpensesItemModel: item,
+                  ),
+                ),
         );
       }).toList(),
     );
