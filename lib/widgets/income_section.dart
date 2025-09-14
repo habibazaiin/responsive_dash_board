@@ -15,13 +15,12 @@ class IncomeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           IncomeSectionHeader(),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(child: IncomeChart()),
-                Expanded(child: IncomeDetails()),
-              ],
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(child: IncomeChart()),
+              Expanded(child: IncomeDetails()),
+            ],
           ),
         ],
       ),
