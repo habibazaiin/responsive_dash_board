@@ -8,6 +8,31 @@ class ItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(width: 24),
+          Container(
+            width: 12,
+            height: 12,
+            decoration: ShapeDecoration(
+              color: itemDetailsModel.color,
+              shape: OvalBorder(),
+            ),
+          ),
+          SizedBox(width: 6),
+          Text(
+            itemDetailsModel.title,
+            style: AppStyles.styleRegular16(context),
+          ),
+          SizedBox(width: 32),
+          Text(itemDetailsModel.value, style: AppStyles.styleMedium16(context)),
+        ],
+      ),
+    );
+
     return ListTile(
       leading: Container(
         width: 12,
