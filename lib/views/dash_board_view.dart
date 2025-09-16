@@ -20,7 +20,6 @@ class _DashBoardViewState extends State<DashBoardView> {
 
   @override
   Widget build(BuildContext context) {
-    print('width ${MediaQuery.sizeOf(context).width}');
     SizeConfig.init(context);
     return Scaffold(
       key: scaffoldKey,
