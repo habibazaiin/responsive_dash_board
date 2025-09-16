@@ -1,3 +1,4 @@
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/utils/size_config.dart';
@@ -19,6 +20,7 @@ class _DashBoardViewState extends State<DashBoardView> {
 
   @override
   Widget build(BuildContext context) {
+    print('width ${MediaQuery.sizeOf(context).width}');
     SizeConfig.init(context);
     return Scaffold(
       key: scaffoldKey,

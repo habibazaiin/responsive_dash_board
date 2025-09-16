@@ -13,19 +13,15 @@ class IncomeDetails extends StatelessWidget {
     ),
     ItemDetailsModel(
       color: Color(0XFF4DB7F2),
-      title: 'Design Service',
+      title: 'Design Product',
       value: '25%',
     ),
     ItemDetailsModel(
       color: Color(0XFF064060),
-      title: 'Design Service',
+      title: 'Product Royalti',
       value: '20%',
     ),
-    ItemDetailsModel(
-      color: Color(0XFFE2DECD),
-      title: 'Design Service',
-      value: '22%',
-    ),
+    ItemDetailsModel(color: Color(0XFFE2DECD), title: 'Other', value: '22%'),
   ];
 
   @override
