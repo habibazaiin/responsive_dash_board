@@ -6,7 +6,14 @@ import 'package:responsive_dash_board/widgets/all_expenses_item.dart';
 class AllExpensesItemListView extends StatefulWidget {
   const AllExpensesItemListView({super.key});
 
-  static const List<AllExpensesItemModel> items = [
+  @override
+  State<AllExpensesItemListView> createState() =>
+      _AllExpensesItemListViewState();
+}
+
+class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
+  int idx = 0;
+  List<AllExpensesItemModel> items = [
     AllExpensesItemModel(
       image: Assets.imagesBalance,
       title: 'Balance',
@@ -28,49 +35,51 @@ class AllExpensesItemListView extends StatefulWidget {
   ];
 
   @override
-  State<AllExpensesItemListView> createState() =>
-      _AllExpensesItemListViewState();
-}
-
-class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
-  int idx = 0;
-
-  @override
   Widget build(BuildContext context) {
     return Row(
-      children: AllExpensesItemListView.items.asMap().entries.map((entry) {
-        int index = entry.key;
-        var item = entry.value;
-
-        return Expanded(
-          child: index == 1
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        idx = index;
-                      });
-                    },
-                    child: AllExpensesItem(
-                      isSelected: idx == index,
-                      allExpensesItemModel: item,
-                    ),
-                  ),
-                )
-              : GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      idx = index;
-                    });
-                  },
-                  child: AllExpensesItem(
-                    isSelected: idx == index,
-                    allExpensesItemModel: item,
-                  ),
-                ),
-        );
-      }).toList(),
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                idx = 0;
+              });
+            },
+            child: AllExpensesItem(
+              isSelected: idx == 0,
+              allExpensesItemModel: items[0],
+            ),
+          ),
+        ),
+        SizedBox(width: 8),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                idx = 1;
+              });
+            },
+            child: AllExpensesItem(
+              isSelected: idx == 1,
+              allExpensesItemModel: items[1],
+            ),
+          ),
+        ),
+        SizedBox(width: 8),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                idx = 2;
+              });
+            },
+            child: AllExpensesItem(
+              isSelected: idx == 2,
+              allExpensesItemModel: items[2],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
